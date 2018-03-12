@@ -1,15 +1,21 @@
-var
+var allImages = [
+  'https://wallpaperscraft.com/image/starry_sky_milky_way_stars_glitter_space_118653_1920x1080.jpg',
+  'https://wallpaperscraft.com/image/stars_space_sky_glitter_116409_1920x1080.jpg',
+  'https://wallpaperscraft.com/image/starry_sky_space_galaxy_118132_1920x1080.jpg',
+  'https://wallpaperscraft.com/image/starry_sky_galaxy_universe_sky_night_118591_1920x1080.jpg'
+];
 
 var currentSlide = 1;
 
 var start = function()
 {
   var markup = "";
-  for(var i = 0; i < alllImages.length; i++) {
-    var imgURL = alllImages[i];
+  for(var i = 0; i < allImages.length; i++) {
+    var imgURL = allImages[i];
     //markup = markup + "img src=" + imgURL + ">";
-    markup = markup + "<div class= 'slide' style='background-image:url(" + imgURL + ")'></div>";
+    markup = markup + "<div class='slide' style='background-image:url(" + imgURL + ")'></div>";
   }
+
 /*
 var 1 = 0;
 while(i < allImages.length) {
@@ -18,13 +24,15 @@ while(i < allImages.length) {
   i = i + 1;
 }
 */
+
   $("#ssContainer").html(markup);
 
-  var markup1 = " ";
+  var markup1 = "";
   for(var i = 0; i < allImages.length; i++){
     markup1 = markup1 + '<button onclick="goToSlide(' + (i + 1) + ',1000)">' + (i + 1) + '</button>';
   }
-  $("numContainer").html(markup);
+  $("#numContainer").html(markup1);
+
 
   gotToSlide(1, 0);
 }
@@ -33,7 +41,7 @@ var goToSlide = function(n, d)
 {
   d = d || 0;
   $("#ssContainer .slide").stop().fadeout(d);
-  $("#ssContainer img:nth-of-type(" + n + ")").stop().fadeIn(d);
+  $("#ssContainer .slide:nth-of-type(" + n + ")").stop().fadeIn(d);
 
   $("#numContainer button").removeClass("active");
   $("#numContainer button:nth-of-type(" + n +")").addClass("active");
@@ -43,8 +51,8 @@ var goToSlide = function(n, d)
 
 var goNext = function()
 {
-  var n= currentSlide + 1;
-  if (n > alllImages.length){
+  var n = currentSlide + 1;
+  if (n > allImages.length){
     n = 1;
   }
   gotToSlide(n, 1000);
