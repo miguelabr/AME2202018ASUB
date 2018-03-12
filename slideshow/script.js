@@ -34,7 +34,7 @@ while(i < allImages.length) {
   $("#numContainer").html(markup1);
 
 
-  gotToSlide(1, 0);
+  goToSlide(1, 0);
 }
 
 var goToSlide = function(n, d)
