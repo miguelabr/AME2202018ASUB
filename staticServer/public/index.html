@@ -1,0 +1,23 @@
+<html>
+<head>
+<script src='asyncReq.js'></script>
+<script>
+	function calculate()
+	{
+    var eq = document.getElementById("userInput").value;
+    eq = encodeURLComponent(eq);
+    var url = "./eval?eq=" + eq;
+    loadFile(url, function(resData){
+      document.getElementById("result").innerHTML = resData;
+    });
+	}
+</script>
+</head>
+
+<body>
+	<h1> Calculator </h1>
+  <textarea id='userInput'> </textarea>
+  <button onclick='calculate()'> Go! </button>
+  <h2 id='result'></h2>
+<body>
+</html>
