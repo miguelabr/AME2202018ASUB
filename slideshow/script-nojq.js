@@ -61,7 +61,8 @@ var ani = "swipe";
 var goToSlide = function(n, d)
 {
   d = d || 0;
-  if(ani === "fade"){
+  //if(ani === "fade"){
+  if(ani === "swipe")
     //$("#ssContainer .slide").stop().fadeOut(d);
     //$("#ssContainer .slide:nth-of-type(" + n + ")").stop().fadeIn(d);
     var slideElements = document.getElementById("ssContainer").getElementsByClassName("slide");
