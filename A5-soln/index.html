@@ -2,6 +2,25 @@
 <html>
 <head>
 <style>
+.night{
+    color: white;
+    background: black;
+}
+.night .hand#min{
+  background:lightgray;
+}
+#timeString{
+  text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+}
+#DropDownTimezone{
+    font-size: 20px;
+    margin: auto;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
 .hand#sec{
   height: 150px;
   width: 2px;
@@ -73,22 +92,21 @@
     transform: translate(150px,0px) rotate(-30deg);
 }
 </style>
-
+<script src='moment.min.js'> </script>
 <script>
   function displayTime(){
-      var dateInMS = new Date().getTime() + new Date().getTimezoneOffset() * 60 *1000 + document.getElementById("DropDownTimezone").value * 60 * 60 * 1000;
+    var dateInMS = new Date().getTime() + new Date().getTimezoneOffset() * 60 *1000 + document.getElementById("DropDownTimezone").value * 60 * 60 * 1000
     var h = new Date(dateInMS).getHours();
     var m = new Date(dateInMS).getMinutes()
     var s = new Date(dateInMS).getSeconds()
-
     var ha = h * (360/12) + (m*.5);
-    var ma = m * (360/60);
+    var ma = m * (360/60)
     var sa = s * (360/60);
 
     document.getElementById("sec").style.transform = 'translate(150px) rotate(' + sa + 'deg)'
     document.getElementById("min").style.transform = 'translate(150px,20px) rotate(' + ma + 'deg)'
     document.getElementById("hour").style.transform = 'translate(150px,50px) rotate(' + ha + 'deg)'
-
+    document.getElementById("timeString").innerHTML = moment(dateInMS).format('MMMM Do YYYY, h:mm:ss a');
     if(h < 6 || h > 18){ //night
       document.getElementById("clockWrapper").className = "night";
     }
@@ -104,13 +122,12 @@
   {
     return ("0" + myNumber).slice(-2);
   }
-
 </script>
 </head>
 
 <body onload='start()'>
-  <select name="DropDownTimezone" id="DropDownTimezone">
-      <option value="default">You are here</option>
+<select name="DropDownTimezone" id="DropDownTimezone">
+      <option value="-7.0">You are here</option>
       <option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>
       <option value="-11.0">(GMT -11:00) Midway Island, Samoa</option>
       <option value="-10.0">(GMT -10:00) Hawaii</option>
@@ -160,7 +177,7 @@
     <div class='hand' id='min'></div>
     <div class='hand' id='sec'></div>
   </div>
-    <div id='timeString'></div>
+  <div id='timeString'></div>
 </body>
 
 </html>
