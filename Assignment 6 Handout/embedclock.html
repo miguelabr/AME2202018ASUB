@@ -108,7 +108,6 @@
     document.getElementById("min").style.transform = 'translate(150px,20px) rotate(' + ma + 'deg)'
     document.getElementById("hour").style.transform = 'translate(150px,50px) rotate(' + ha + 'deg)'
     document.getElementById("timeString").innerHTML = moment(dateInMS).format('MMMM Do YYYY, h:mm:ss a');
-
     if(h < 6 || h >= 18){ //night
       document.getElementById("clockWrapper").className = "night";
     }

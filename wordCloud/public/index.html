@@ -200,9 +200,15 @@ function generateCloud(data)
    var output = "";
    for(var i = 0; i < theWords.length; i = i + 1){
      // code here  --- us the wordCount object to generate a word cloud of words that occur more than once.
+
      if(wordCount[theWords[i]] >1){ //check if the word occurs more than once.
-       output = output + "<span> " + theWords[i] + "</span>";
+       output = output + "<span style='font-size:" + 35 +"'> " + theWords[i] + "</span>";
      }
+     else if(wordCount[theWords[i]] >6){
+         output = output + "<span style='font-size:" + 50 +"'> " + theWords[i] + "</span>";
+     }
+     else if(wordCount[theWords[i]] >4){
+         output = output + "<span style='font-size:" + 20 +"'> " + theWords[i] + "</span>";
    }
 
    document.getElementById('cloud').innerHTML = output;

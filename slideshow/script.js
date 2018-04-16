@@ -16,10 +16,10 @@ var startEmbednoJQ = function()
 var start = function()
 {
   allImages = [
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Pied-winged_swallow_%28Hirundo_leucosoma%29.jpg/1280px-Pied-winged_swallow_%28Hirundo_leucosoma%29.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Rufous-tailed_flycatcher_%28Myiarchus_validus%29.JPG/1024px-Rufous-tailed_flycatcher_%28Myiarchus_validus%29.JPG',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Bare-faced_curassow_%28Crax_fasciolata%29_female_head.JPG/1024px-Bare-faced_curassow_%28Crax_fasciolata%29_female_head.JPG',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Savanna_hawk_%28Buteogallus_meridionalis%29.JPG/800px-Savanna_hawk_%28Buteogallus_meridionalis%29.JPG'
+  'https://wallpaperscraft.com/image/space_sky_stars_79233_1920x1080.jpg',
+  'https://wallpaperscraft.com/image/clouds_milky_way_eclipse_light_68883_1920x1080.jpg',
+  'https://wallpaperscraft.com/image/milky_way_stars_night_sky_space_97654_1920x1080.jpg',
+  'https://wallpaperscraft.com/image/space_flight_sky_stars_82970_1920x1080.jpg'
 ];
   startAux();
 }
@@ -56,8 +56,7 @@ function startAux()
   goToSlide(1, 0);
 }
 
-var ani = "fade";
-var usejQ = false;
+var ani = "swipe";
 
 var goToSlide = function(n, d)
 {
@@ -70,12 +69,13 @@ var goToSlide = function(n, d)
     if(n > currentSlide){ // swipe left
       $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
       $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"-100%", "opacity":0}, d);
-      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":"0"}).css({"margin-left":"100%"}).animate({"opacity":"1","margin-left":"0%"}, d);
+      //$("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":"0"}).css({"margin-left":"100%"}).animate({"opacity":"1","margin-left":"0%"}, d);
+      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":"0", "margin-left":"100%"}).animate({"opacity":"1","margin-left":"0%"}, d);
     }
     else{  // swipe right
       $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
       $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"100%", "opacity": 0}, d);
-      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":0,"margin-left":"-100%"}).animate({"opacity":1,"margin-left":"0%"}, d);
+      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":/*0*/"0","margin-left":"-100%"}).animate({"opacity":/*1*/"1","margin-left":"0%"}, d);
     }
   }
 

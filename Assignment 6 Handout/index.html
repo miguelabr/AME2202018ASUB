@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <script scr='jquery-2.1.3.js'></script>
+<script src='jquery-2.1.3.js'> </script>
 <style>
   .tzCard{
     width: 100%;
@@ -48,39 +48,33 @@ function aTZSelected(n){
   $("#theList .tzCard").removeClass("active");
   $("#theList .tzCard:nth-of-type(" + (n+1) + ")").addClass("active");
 }
-
   var dataStore = [];
   var start = function(){
     if(dataStore.length == 0){
       document.getElementById("theList").innerHTML = "No stored timezones. Add some!"
       return;
     }
-    //incomplete
+
+    var markup = "";
     for(var i = 0; i < dataStore.length; i++){
-      markup += "<button class='tzCard' onclick='aTZSelected(" + i + ")>" + dataStore[i].name + "</button>";
+        markup += "<button class='tzCard' onclick='aTZSelected(" + i + ")'>" + dataStore[i].name + "</button>";
     }
     console.log(markup);
     document.getElementById("theList").innerHTML = markup;
   }
-
-
   var addNew = function(){
     document.getElementById("timezoneSelection").style.display = "block";
   }
-
   var tzCancel = function(){
     document.getElementById("timezoneSelection").style.display = "none";
   }
-
   var tzDone = function(){
     tzName = document.getElementById("DropDownTimezone").options[document.getElementById("DropDownTimezone").selectedIndex].text;
     tzOffset = document.getElementById("DropDownTimezone").value;
-
     dataStore.push({name : tzName, offset: tzOffset});
     document.getElementById("timezoneSelection").style.display = "none";
     start();
   }
-
 </script>
 </head>
 
