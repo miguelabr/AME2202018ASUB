@@ -45,6 +45,7 @@ function aTZSelected(n){
       "<iframe style='width: 100%;height: 500px;border: none;' src='./embedclock.html#" + offset + "'>"
 
   document.getElementById("theSelectedWraper").innerHTML = markup;
+
   $("#theList .tzCard").removeClass("active");
   $("#theList .tzCard:nth-of-type(" + (n+1) + ")").addClass("active");
 }
@@ -55,7 +56,8 @@ function aTZSelected(n){
       document.getElementById("theList").innerHTML = "No stored timezones. Add some!"
       return;
     }
-    //incomplete
+
+    var markup= "";
     for(var i = 0; i < dataStore.length; i++){
       markup += "<button class='tzCard' onclick='aTZSelected(" + i + ")>" + dataStore[i].name + "</button>";
     }

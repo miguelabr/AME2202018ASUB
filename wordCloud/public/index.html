@@ -183,10 +183,10 @@ var load = function()
   var file = document.getElementById("dropDown").value;
   loadFile("./" + file,generateCloud);
 }
-var allWords = [];
-var wordCount = {}
 function generateCloud(data)
 {
+var allWords = [];
+var wordCount = {}
    allWords = data.match(/\b\w+\b/g);   //get all words in the document
 
    for(var i = 0; i < allWords.length; i = i + 1){
@@ -198,21 +198,31 @@ function generateCloud(data)
    }
    var theWords = Object.keys(wordCount); // all words over 5 characters
    var output = "";
-   for(var i = 0; i < theWords.length; i = i + 1){
-     // code here  --- us the wordCount object to generate a word cloud of words that occur more than once.
 
-     if(wordCount[theWords[i]] >1){ //check if the word occurs more than once.
-       output = output + "<span style='font-size:" + 35 +"'> " + theWords[i] + "</span>";
-     }
-     else if(wordCount[theWords[i]] >6){
-         output = output + "<span style='font-size:" + 50 +"'> " + theWords[i] + "</span>";
-     }
-     else if(wordCount[theWords[i]] >4){
-         output = output + "<span style='font-size:" + 20 +"'> " + theWords[i] + "</span>";
+   function getRandom(min, max){
+     return Math.random = (max - min) + min;
    }
 
+   for(var i = 0; i < theWords.length; i = i + 1){
+     // code here  --- us the wordCount object to generate a word cloud of words that occur more than once.
+     if(wordCount[theWords[i]] >1){ //check if the word occurs more than once.
+       output = output + "<span style='font-size:" + (10+(2*wordCount[theWords[i]])) +"'> " + theWords[i] + "</span>";
+     }
+
+     else if(wordCount[theWords[i]] >8){
+         output = output + "<span style='font-size:" + (wordCloud[theWords[i]]*2) +"'> " + theWords[i] + "</span>";
+     }
+     /*
+     else if(wordCount[theWords[i]] >=7){
+         output = output + "<span style='font-size:" + 80 +"'> " + theWords[i] + "</span>";
+   }
+    else if(wordCount[theWords[i]] >=5){
+       output = output + "<span style='font-size:" + 50 +"'> " + theWords[i] + "</span>";
+ }
+ */
+   }
    document.getElementById('cloud').innerHTML = output;
-}
+   }
 </script>
 
 </head>
