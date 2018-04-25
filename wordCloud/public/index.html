@@ -199,27 +199,29 @@ var wordCount = {}
    var theWords = Object.keys(wordCount); // all words over 5 characters
    var output = "";
 
-   function getRandom(min, max){
+   /*function getRandom(min, max){
      return Math.random = (max - min) + min;
    }
-
+*/
    for(var i = 0; i < theWords.length; i = i + 1){
      // code here  --- us the wordCount object to generate a word cloud of words that occur more than once.
      if(wordCount[theWords[i]] >1){ //check if the word occurs more than once.
-       output = output + "<span style='font-size:" + (10+(2*wordCount[theWords[i]])) +"'> " + theWords[i] + "</span>";
+       //output = output + "<span> " + theWords[i] + "</span>";
+       output = output + "<span style='font-size:" + (20+(2*wordCount[theWords[i]])) +"'> " + theWords[i] + "</span>";
      }
 
-     else if(wordCount[theWords[i]] >8){
-         output = output + "<span style='font-size:" + (wordCloud[theWords[i]]*2) +"'> " + theWords[i] + "</span>";
-     }
-     /*
-     else if(wordCount[theWords[i]] >=7){
-         output = output + "<span style='font-size:" + 80 +"'> " + theWords[i] + "</span>";
+     //if(wordCount[theWords[i]] >9){
+      //   output = output + "<span style='font-size:" + 50 +"'> " + theWords[i] + "</span>";
+     //}
+/*
+     if(wordCount[theWords[i]] >10){
+         output = output + "<style='font-size:" + 75 +"'> " + theWords[i] + "</span>";
    }
-    else if(wordCount[theWords[i]] >=5){
-       output = output + "<span style='font-size:" + 50 +"'> " + theWords[i] + "</span>";
+
+    if(wordCount[theWords[i]] >20){
+         output = output + "<style='font-size:" + 100 +"'> " + theWords[i] + "</span>";
  }
- */
+*/
    }
    document.getElementById('cloud').innerHTML = output;
    }

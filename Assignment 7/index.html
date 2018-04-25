@@ -1,15 +1,26 @@
 <html>
 
 <head>
-  <script src='jquery-2.1.3.js'></script>
-  <link rel="stylesheet" href="animate.min.css">
+<script src='jquery-2.1.3.js'> </script>
+<link rel="stylesheet" href="animate.min.css">
 
-  <style>
-  .animatedList{
+<style>
+  .animatedList
+  {
     width: 100%;
-    height: 100px;
+    height: 50px;
     background: none;
-    box-shadow: 0px 0px 0px;
+    border: none;
+    box-shadow: 0px 0px 1px;
+  }
+  #target
+  {
+	  animation-duration: 3s;
+	  animation-delay: 0s;
+	  animation-iteration-count: infinite;
+	  -webkit-animation-duration: 3s;
+	  -webkit-animation-delay: 0s;
+	  -webkit-animation-iteration-count: infinite;
   }
   body{
     margin: 0px;
@@ -23,25 +34,125 @@
     display: none;
   }
   #theListWraper{
-    width: 250px;
+    width: 300px;
     float: left;
     height: 100%;
-    background: lightgray;
+    background: black;
+	overflow:scroll;
   }
   #theSelectedWraper{
-    width: calc(100% - 250px);
+    width: 200px;
     float: right;
-    height: 100%;
+	position: relative;
+    height: 200px;
+	margin: 5% 35% 0% 20%;
   }
   .active{
     background: gold;
   }
+h1{
+  color:white;
+}
 
-  </script>
-  </head>
+</style>
+<script>
+function animatedSelect(selected, n){
 
+  var markup = "<div class='animated infinite " + selected + "' id='target' 	style='width:400px;height:400px;background-color:red;'></div>"
 
-</div>
+  document.getElementById("theSelectedWraper").innerHTML = markup;
+  $(".animatedList").removeClass("active");
+  $(".animatedList:nth-of-type(" + n + ")").addClass("active");
+}
+function start()
+{
+	animatedSelect('',1);
+}
+
+</script>
+</head>
+
+<body onload='start()'>
+  <div id='theListWraper'>
+    <h1> animate.css <h1>
+
+  <div id='theList'>
+    <button class='animatedList' onclick="animatedSelect('bounce',1)"><h1>bounce</h1></button>
+	<button class='animatedList' onclick="animatedSelect('flash',2)"><h1>flash</h1></button>
+	<button class='animatedList' onclick="animatedSelect('pulse',3)"><h1>pulse</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rubberband',4)"><h1>rubberBand</h1></button>
+	<button class='animatedList' onclick="animatedSelect('shake',5)"><h1>shake</h1></button>
+	<button class='animatedList' onclick="animatedSelect('headShake',6)"><h1>headShake</h1></button>
+	<button class='animatedList' onclick="animatedSelect('swing',7)"><h1>swing</h1></button>
+	<button class='animatedList' onclick="animatedSelect('tada',8)"><h1>tada</h1></button>
+	<button class='animatedList' onclick="animatedSelect('wobble',9)"><h1>wobble</h1></button>
+	<button class='animatedList' onclick="animatedSelect('jello',10)"><h1>jello</h1></button>
+	<button class='animatedList' onclick="animatedSelect('bounceIn',11)"><h1>bounceIn</h1></button>
+	<button class='animatedList' onclick="animatedSelect('bounceInDown',12)"><h1>bounceInDown</h1></button>
+	<button class='animatedList' onclick="animatedSelect('bounceInLeft',13)"><h1>bounceInLeft</h1></button>
+	<button class='animatedList' onclick="animatedSelect('bounceInRight',14)"><h1>bounceInRight</h1></button>
+	<button class='animatedList' onclick="animatedSelect('bounceInUp',15)"><h1>bounceInUp</h1></button>
+	<button class='animatedList' onclick="animatedSelect('bounceOut',16)"><h1>bounceOut</h1></button>
+	<button class='animatedList' onclick="animatedSelect('bounceOutDown',17)"><h1>bounceOutDown</h1></button>
+	<button class='animatedList' onclick="animatedSelect('bounceOutLeft',18)"><h1>bounceOutLeft</h1></button>
+	<button class='animatedList' onclick="animatedSelect('bounceOutRight',19)"><h1>bounceOutRight</h1></button>
+	<button class='animatedList' onclick="animatedSelect('bounceOutUp',20)"><h1>bounceOutUp</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeIn',21)"><h1>fadeIn</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeInDown',22)"><h1>fadeInDown</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeInDownBig',23)"><h1>fadeinDownBig</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeInLeft',24)"><h1>fadeInLeft</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeInLeftBig',25)"><h1>fadeInLeftBig</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeInRight',26)"><h1>fadeInRight</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeInRightBig',27)"><h1>fadeInRightBig</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeInUp',28)"><h1>fadeInUp</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeInUpBig',29)"><h1>fadeInUpBig</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeOut',30)"><h1>fadeOut</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeOutDown',31)"><h1>fadeOutDown</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeOutDownBig',32)"><h1>fadeOutDownBig</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeOutLeft',33)"><h1>fadeOutLeft</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeOutLeftBig',34)"><h1>fadeOutLeftBig</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeOutRight',35)"><h1>fadeOutRight</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeOutRightBig',36)"><h1>fadeOutRightBig</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeOutUp',37)"><h1>fadeOutUp</h1></button>
+	<button class='animatedList' onclick="animatedSelect('fadeOutUpBig',38)"><h1>fadeOutUpBig</h1></button>
+	<button class='animatedList' onclick="animatedSelect('flipInX',39)"><h1>flipInX</h1></button>
+	<button class='animatedList' onclick="animatedSelect('flipInY',40)"><h1>flipInY</h1></button>
+	<button class='animatedList' onclick="animatedSelect('flipOutX',41)"><h1>flipOutX</h1></button>
+	<button class='animatedList' onclick="animatedSelect('lightSpeedIn',42)"><h1>lightSpeedin</h1></button>
+	<button class='animatedList' onclick="animatedSelect('lightSpeedOut',43)"><h1>lightSpeedOut</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rotateIn',44)"><h1>rotateIn</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rotateInDownLeft',45)"><h1>rotateInDownLeft</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rotateInDownRight',46)"><h1>rotateInDownRight</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rotateInUpLeft',47)"><h1>rotateInUpLeft</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rotateInUpRight',48)"><h1>rotateInUpRight</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rotateOut',49)"><h1>rotateOut</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rotateOutDownLeft',50)"><h1>rotateOutDownLeft</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rotateOutDownRight',51)"><h1>rotateOutDownRight</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rotateOutUpLeft',52)"><h1>rotateOutUpLeft</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rotateOutUpRight',53)"><h1>rotateOutUpRight</h1></button>
+	<button class='animatedList' onclick="animatedSelect('hinge',54)"><h1>hinge</h1></button>
+	<button class='animatedList' onclick="animatedSelect('jackInTheBox',55)"><h1>jackInTheBox</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rollIn',56)"><h1>rollIn</h1></button>
+	<button class='animatedList' onclick="animatedSelect('rollOut',57)"><h1>rollOut</h1></button>
+	<button class='animatedList' onclick="animatedSelect('zoomIn',58)"><h1>zoomIn</h1></button>
+	<button class='animatedList' onclick="animatedSelect('zoomInDown',59)"><h1>zoomInDown</h1></button>
+	<button class='animatedList' onclick="animatedSelect('zoomInLeft',60)"><h1>zoomInLeft</h1></button>
+	<button class='animatedList' onclick="animatedSelect('zoomInRight',61)"><h1>zoomInRight</h1></button>
+	<button class='animatedList' onclick="animatedSelect('zoomInUp',62)"><h1>zoomInUp</h1></button>
+	<button class='animatedList' onclick="animatedSelect('zoomOut',63)"><h1>zoomOut</h1></button>
+	<button class='animatedList' onclick="animatedSelect('zoomOutDown',64)"><h1>zoomOutDown<h1></button>
+	<button class='animatedList' onclick="animatedSelect('zoomOutLeft',65)"><h1>zoomOutLeft</h1></button>
+	<button class='animatedList' onclick="animatedSelect('zoomOutRight',66)"><h1>zoomOutRight</h1></button>
+	<button class='animatedList' onclick="animatedSelect('zoomOutUp',67)"><h1>zoomOutUp</h1></button>
+	<button class='animatedList' onclick="animatedSelect('slideInDown',68)"><h1>slideInDown</h1></button>
+	<button class='animatedList' onclick="animatedSelect('slideInLeft',69)"><h1>slideInLeft</h1></button>
+	<button class='animatedList' onclick="animatedSelect('slideInRight',70)"><h1>slideInRight</h1></button>
+	<button class='animatedList' onclick="animatedSelect('slideInUp',71)"><h1>slideInUp</h1></button>
+	<button class='animatedList' onclick="animatedSelect('slideInDown',72)"><h1>slideOutDown</h1></button>
+	<button class='animatedList' onclick="animatedSelect('slideInLeft',73)"><h1>slideOutLeft</h1></button>
+	<button class='animatedList' onclick="animatedSelect('slideInRight',74)"><h1>slideOutRight</h1></button>
+	<button class='animatedList' onclick="animatedSelect('slideInUp',75)"><h1>slideOutUp</h1></button>
+  </div>
 </div>
 <div id='theSelectedWraper'></div>
 
