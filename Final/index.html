@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1 style= "font-size:50px;"><b> Miguel Botello </b></h1>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 20px;
+  width:100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.5s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+th, dt {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+	<!-- Add your content here -->
+
+<img src="https://i.imgur.com/H6icgy3.jpg" alt="Photo" width="500" height="500"/>
+
+<button class="accordion"><b>Info</b></button>
+<div class="panel">
+<p><a href='tel:(480)-842-1938'>Phone:(480)-842-1938</a> | <a href='mailto:mabotell@asu.edu'>Email: mabotell@asu.edu</a>
+
+|<a href="https://goo.gl/maps/Y7HDzcuUjFo">Address: Phoenix, AZ</a></p>
+</div>
+
+<button class="accordion"><caption><b>Objective</b></caption></button>
+<div class="panel">
+<p>My objective is to gain experience and knowledge by learning and having hands on experience in this line of work. I wish to help elevate the quality of the product by attributing my own resources in order to hopefully create a polished and better product. I am willing to do any work necessary to help the company and I am willing to learn whatever I have to to make a difference. </p>
+</div>
+
+
+  <button class="accordion"><caption><b>Education</b></caption></button>
+  <div class="panel">
+  <table style="width:100%">
+  <tr>
+    <td>High School</td>
+    <td>Graduated May, 2016</td>
+  </tr>
+  <tr>
+    <td>College</td>
+    <td>Graduating May, 2020</td>
+  </tr>
+</table>
+</div>
+
+<button class="accordion"><caption><b>Skills</b></caption></button>
+<div class="panel">
+<ul style="list-style-type:disc">
+  <li>Experience using Unity and GameMaker </li>
+  <li>Experience using Photoshop and other Adobe products </li>
+  <li>Hardworker, willing to put extra time and effort into the job </li>
+</ul>
+</div>
+
+<button class="accordion"><caption><b>Experience</b></caption></button>
+  <div class="panel">
+<p><h4>Work:</h4> The Stratford: Worked as a waiter to residents of the Stratford. Had strong communication skills that were built by serving and talking to said residents. Developed a new appreciation for teamwork by working alongside 4 other servers and helping each other throughout the day.  </p>
+<p><h4>Work:</h4> Experience using photoshop to create images. Used Unity to create a game that was entirely created from scratch by a team of other students.</p>
+</div>
+
+<button class="accordion"><caption><b>References</b></caption></button>
+<div class="panel">
+  <ol type="1">
+    <li>Spencer Stovell (602)-695-3000</li>
+    <li>Irvin Huncho (602)-300-1738</li>
+    <li>Jose "Pablo" Freeman (602)-585-0273</li>
+  </ol>
+</div>
+  <script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight){
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  }
+  </script>
+
+</body>
+</html>
